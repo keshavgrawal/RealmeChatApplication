@@ -1,0 +1,82 @@
+
+ 
+.logo{
+    display: block;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+}
+.container{
+    background-image:url("bg.jpg");
+    max-width: 1000px;
+    margin: auto;
+    height: 500px;
+    overflow-y: auto;
+    margin-bottom: 13px;
+    padding: 35px 0px;
+}
+.message{
+    background-color: rgb(0, 0, 0);
+    width: 30%;
+    padding: 5px 5px;
+    margin: 9px 15px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+.right{
+    float: right;
+    clear: both;
+}
+.left{
+    float:left;
+    clear: both;
+}
+
+#send-container{
+    display: block;
+    margin: auto;
+    text-align: center;
+    /* width: 50 */
+    /* max-width: 50%; */
+}
+#messageInp{
+    width: 948px;
+    border: 2px solid black;
+    border-radius: 4px;
+    height: 25px;
+}
+.btn{
+    cursor: pointer;
+    background-color: yellow;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 28px;
+
+}
+@import url(https://fonts.googleapis.com/css?family=Khula:700);
+.hidden {
+  opacity:0;
+}
+.console-container {
+ 
+  font-family:Khula;
+  font-size: 40px;;
+  display: block;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 5px;
+  
+   
+}
+.console-underscore {
+  display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}

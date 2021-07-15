@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Chat-Realtime Chatting Application</title>
+    <script defer src="http://localhost:7000/socket.io/socket.io.js"></script>
+    <script defer src="js/client.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="css/logo.png" alt="">
+        <h1></h1>
+        <div class='console-container'><span id='text'></span>
+            <div class='console-underscore' id='console'>&#95;</div>
+        </div>
+
+
+    </nav>
+    <div class="container">
+        <!-- <div class="message right"></div>
+        <div class="message left"></div> -->
+    </div>
+    <div class="send">
+        <form action="#" id="send-container">
+            <input type="text" name="messageInp" id="messageInp">
+            <button class="btn" type="submit">send</button>
+        </form>
+    </div>
+    <SCript>
+        !-- // function([string1, string2],target id,[color1,color2])     -->
+            consoleText(['We-Chat Application', 'Make More Friends', 'Do Gossip','Enjoying Alot'], 'text', ['black']);
+
+        function consoleText(words, id, colors) {
+            if (colors === undefined) colors = ['#fff'];
+            var visible = true;
+            var con = document.getElementById('console');
+            var letterCount = 1;
+            var x = 1;
+            var waiting = false;
+            var target = document.getElementById(id)
+            target.setAttribute('style', 'color:' + colors[0])
+            window.setInterval(function () {
+
+                if (letterCount === 0 && waiting === false) {
+                    waiting = true;
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    window.setTimeout(function () {
+                        var usedColor = colors.shift();
+                        colors.push(usedColor);
+                        var usedWord = words.shift();
+                        words.push(usedWord);
+                        x = 1;
+                        target.setAttribute('style', 'color:' + colors[0])
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (letterCount === words[0].length + 1 && waiting === false) {
+                    waiting = true;
+                    window.setTimeout(function () {
+                        x = -1;
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (waiting === false) {
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    letterCount += x;
+                }
+            }, 120)
+            window.setInterval(function () {
+                if (visible === true) {
+                    con.className = 'console-underscore hidden'
+                    visible = false;
+
+                } else {
+                    con.className = 'console-underscore'
+
+                    visible = true;
+                }
+            }, 400)
+        }
+    </SCript>
+    });
+    </script>
+</body>
+
+</html>
